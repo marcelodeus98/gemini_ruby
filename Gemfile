@@ -1,12 +1,16 @@
-# frozen_string_literal: true
+# Gemfile
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in gemini_ruby.gemspec
-gemspec
+# Dependências da gem
+gem "faraday", "~> 2.0"
+gem "faraday-retry", "~> 2.0"
+gem "json", "~> 2.5"
 
-gem "rake", "~> 13.0"
-
-gem "rspec", "~> 3.0"
-
-gem "rubocop", "~> 1.21"
+# Dependências de desenvolvimento
+group :development, :test do
+  gem "rake", "~> 13.0"
+  gem "rspec", "~> 3.0"
+  gem "rubocop", "~> 1.21"
+  gem "webmock", "~> 3.14"
+end

@@ -1,5 +1,3 @@
-# lib/gemini_ruby.rb
-
 require "faraday"
 require "faraday/retry"
 require "json"
@@ -10,5 +8,7 @@ require_relative "gemini_ruby/client"
 require_relative "gemini_ruby/request"
 
 module GeminiRuby
+  BASE_URL = "https://api.gemini.com".freeze
+
   class Error < StandardError; end
 end

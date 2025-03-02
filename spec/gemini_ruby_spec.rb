@@ -1,36 +1,19 @@
-# gemini_ruby.gemspec
+require 'spec_helper'
 
-require_relative 'lib/gemini_ruby/version'
+RSpec.describe GeminiRuby::Client do
+  let(:api_key) { ENV['GEMINI_API_KEY'] }
+  let(:client) { described_class.new(api_key: api_key) }
 
-Gem::Specification.new do |spec|
-  spec.name          = "gemini_ruby"
-  spec.version       = GeminiRuby::VERSION
-  spec.authors       = ["Marcelo Deus"]
-  spec.email         = ["marcelodeus98@gmail.com"]
+  describe '#get_ticker' do
+    it 'returns ticker data for a valid symbol' do
+      # Mock da resposta da API
+      stub_request(:get, "https://api.gemini.com/v1/pubticker/btcusd")
+        .to_return(status: 200, body: '{"bid":"50000","ask":"50010"}')
 
-  spec.summary       = "Ruby gem to interact with the Google Gemini API."
-  spec.description   = "A modern, performant, and secure Ruby gem for integrating with the Google Gemini API."
-  spec.homepage      = "https://github.com/seu_usuario/gemini_ruby"
-  spec.license       = "MIT"
-  spec.required_ruby_version = ">= 2.7.0"
-
-  spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/marcelodeus98/gemini_ruby"
-  spec.metadata["changelog_uri"] = "https://github.com/marcelodeus98/gemini_ruby/blob/main/CHANGELOG.md"
-
-  spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
-    `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+      response = client.get_ticker('btcusd')
+      expect(response).to be_a(Hash)
+      expect(response['bid']).to eq('50000')
+      expect(response['ask']).to eq('50010')
+    end
   end
-  spec.bindir        = "exe"
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
-
-  spec.add_dependency "faraday", "~> 2.0"
-  spec.add_dependency "faraday-retry", "~> 2.0"
-  spec.add_dependency "json", "~> 2.5"
-
-  spec.add_development_dependency "rake", "~> 13.0"
-  spec.add_development_dependency "rspec", "~> 3.0"
-  spec.add_development_dependency "rubocop", "~> 1.21"
-  spec.add_development_dependency "webmock", "~> 3.14"
 end
