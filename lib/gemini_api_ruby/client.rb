@@ -5,13 +5,11 @@ module GeminiApiRuby
     end
 
     def get_ticker(symbol)
-      response = request(:get, "/v1/pubticker/#{symbol}")
-      response.body 
+      request(:get, "/v1/pubticker/#{symbol}") # Removido `.body`
     end
 
     def get_order_book(symbol)
-      response = request(:get, "/v1/book/#{symbol}")
-      response.body
+      request(:get, "/v1/book/#{symbol}") # Removido `.body`
     end
 
     private
