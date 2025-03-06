@@ -12,6 +12,7 @@ module GeminiRuby
     def get_order_book(symbol)
       response = request(:get, "/v1/book/#{symbol}")
       response.body
+    end
 
     private
 
