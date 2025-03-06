@@ -1,5 +1,5 @@
 require 'webmock/rspec'
-require 'gemini_ruby'
+require 'gemini_api_ruby'
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
