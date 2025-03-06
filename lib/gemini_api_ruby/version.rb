@@ -1,3 +1,3 @@
-module GeminiRuby
+module GeminiApiRuby
   VERSION = "1.0.0"
 end

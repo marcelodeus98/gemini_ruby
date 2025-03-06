@@ -1,4 +1,4 @@
-# GeminiRuby
+# GeminiApiRuby
 
 A Ruby gem to interact with the Google Gemini API.
 
@@ -7,4 +7,4 @@ A Ruby gem to interact with the Google Gemini API.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gemini_ruby'
+gem 'gemini_api_ruby'

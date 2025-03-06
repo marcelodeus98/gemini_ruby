@@ -4,7 +4,7 @@ require_relative "lib/gemini_api_ruby/version"
 
 Gem::Specification.new do |spec|
   spec.name = "gemini_api_ruby"
-  spec.version = GeminiRuby::VERSION
+  spec.version = GeminiApiRuby::VERSION
   spec.authors = ["marcelodeus98"]
   spec.email = ["marcelodeus8@gmail.com"]
 

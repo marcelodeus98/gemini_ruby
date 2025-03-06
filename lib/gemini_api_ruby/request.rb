@@ -1,4 +1,4 @@
-module GeminiRuby
+module GeminiApiRuby
   class Request
     def initialize(api_key:)
       @api_key = api_key
@@ -15,7 +15,7 @@ module GeminiRuby
     private
 
     def connection
-      @connection ||= Faraday.new(url: GeminiRuby::BASE_URL) do |faraday|
+      @connection ||= Faraday.new(url: GeminiApiRuby::BASE_URL) do |faraday|
         faraday.request :json
         faraday.response :json, content_type: /\bjson$/
         faraday.adapter Faraday.default_adapter

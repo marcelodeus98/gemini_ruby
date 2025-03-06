@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.describe GeminiRuby::Client do
+RSpec.describe GeminiApiRuby::Client do
   let(:api_key) { "test_api_key" }
   let(:client) { described_class.new(api_key: api_key) }
 

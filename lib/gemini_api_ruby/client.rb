@@ -1,4 +1,4 @@
-module GeminiRuby
+module GeminiApiRuby
   class Client
     def initialize(api_key:)
       @api_key = api_key

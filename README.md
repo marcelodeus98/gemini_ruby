@@ -1,4 +1,4 @@
-# GeminiRuby
+# GeminiApiRuby
 
 Welcome to gemini-api-ruby!
 

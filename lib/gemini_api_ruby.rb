@@ -7,7 +7,7 @@ require_relative "gemini_api_ruby/errors"
 require_relative "gemini_api_ruby/client"
 require_relative "gemini_api_ruby/request"
 
-module GeminiRuby
+module GeminiApiRuby
   BASE_URL = "https://api.gemini.com".freeze
 
   class Error < StandardError; end
