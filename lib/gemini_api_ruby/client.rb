@@ -6,6 +6,7 @@ module GeminiApiRuby
 
     def generate_text(prompt)
       response = request(:post, "/v1/generate", { prompt: prompt })
+    end
 
     def get_ticker(symbol)
       request(:get, "/v1/pubticker/#{symbol}")
