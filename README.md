@@ -1,44 +1,44 @@
 # GeminiApiRuby
 
-A Ruby gem to interact with the Google Gemini API.
+Uma gem Ruby para interagir com a API Google Gemini.
 
-## Installation
+## Instalação
 
-Add this line to your application's Gemfile:
+Adicione esta linha ao Gemfile da sua aplicação:
 
 ```ruby
 gem 'gemini_api_ruby'
 ```
 
-And then execute:
+Em seguida, execute:
 
 ```bash
 bundle install
 ```
 
-Or install it yourself as:
+Ou instale manualmente com:
 
 ```bash
 gem install gemini_api_ruby
 ```
 
-## Configuration
+## Configuração
 
-Before using the gem, ensure you have your `GEMINI_API_KEY` set in your environment variables. You can do this by adding it to your `.env` file (if you're using something like `dotenv`), or exporting it directly in your shell:
+Antes de usar a gem, certifique-se de que sua chave `GEMINI_API_KEY` está definida nas variáveis de ambiente. Você pode fazer isso adicionando-a ao seu arquivo `.env` (caso utilize `dotenv`) ou exportando diretamente no terminal:
 
 ```bash
-export GEMINI_API_KEY='your_api_key_here'
+export GEMINI_API_KEY='sua_chave_api_aqui'
 ```
 
-## Usage
+## Uso
 
-Here's an example of how to use the gem to interact with the Gemini API:
+Aqui está um exemplo de como usar a gem para interagir com a API Gemini:
 
 ```ruby
-# Initialize the GeminiApiRuby client with your API key
+# Inicializa o cliente GeminiApiRuby com sua chave API
 client = GeminiApiRuby::Client.new(api_key: ENV['GEMINI_API_KEY'])
 
-# Define some sample prompts for generating travel plans
+# Define alguns prompts de exemplo para geração de planos de viagem
 PROMPTS = [
   "Crie um plano de viagem de 3 dias para Paris, incluindo pontos turísticos e restaurantes.",
   "Sugira um roteiro de 5 dias para uma viagem ao Japão, com foco em cultura e gastronomia.",
@@ -47,23 +47,23 @@ PROMPTS = [
   "Crie um roteiro de 10 dias para uma viagem pela Costa Oeste dos Estados Unidos, incluindo parques nacionais e cidades."
 ]
 
-# Example API call using a random prompt
+# Exemplo de chamada de API usando um prompt aleatório
 get '/random_travel_plan' do
   prompt = PROMPTS.sample
 
-  # Generate content using the client
+  # Gera o conteúdo usando o cliente
   travel_plan = client.generate_content(prompt)
 
-  # Return the generated content as a JSON response
+  # Retorna o conteúdo gerado como resposta JSON
   content_type :json
   { prompt: prompt, travel_plan: travel_plan }.to_json
 end
 ```
 
-## Changelog
+## Registro de Alterações
 
 ### v1.0.0
 
-- Initial release of the GeminiApiRuby gem.
-- Basic functionality to interact with the Google Gemini API for generating content.
+- Lançamento inicial da gem GeminiApiRuby.
+- Funcionalidade básica para interagir com a API Google Gemini e gerar conteúdo.
 
